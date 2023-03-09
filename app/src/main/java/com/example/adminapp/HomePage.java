@@ -35,6 +35,8 @@ public class HomePage extends AppCompatActivity {
     DatabaseReference myRef;
     FirebaseDatabase database;
 
+    Button btnForClasswiseView;
+
     EditText textForSearch;
     Button btnForSearch;
     @Override
@@ -42,6 +44,7 @@ public class HomePage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
 
+        btnForClasswiseView=findViewById(R.id.button5);
         logoutBtn=findViewById(R.id.button2);
         name=findViewById(R.id.textView);
         btnForSearch=findViewById(R.id.button3);
@@ -91,6 +94,10 @@ public class HomePage extends AppCompatActivity {
             logOut();
         });
 
+        btnForClasswiseView.setOnClickListener(view -> {
+            Intent i=new Intent(getApplicationContext(),ClasswiseView.class);
+            startActivity(i);
+        });
         btnForSearch.setOnClickListener(view -> {
 //            finish();
             Intent i=new Intent(getApplicationContext(),ResultPage.class);
